@@ -1,342 +1,255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BaitaH Xis – Lanches Artesanais</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BaitaH Xis</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #ff9f1c;
-      --secondary: #ff5e00;
-      --dark: #0f0f0f;
-      --gray: #1c1c1c;
-      --light: #f5f5f5;
-      --accent: #ee6604f1;
-    }
+<style>
+:root {
+  --primary:#ff9f1c;
+  --secondary:#ff5e00;
+  --dark:#0f0f0f;
+  --accent:#ee6604;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 
-    body {
-      background: linear-gradient(180deg, #000, #121212);
-      color: var(--light);
-      line-height: 1.6;
-    }
+body{
+  background:linear-gradient(180deg,#000,#121212);
+  color:#fff;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
+header{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,.8);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
 
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .nav h1 {
-      color: var(--primary);
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+.nav a{
+  color:#fff;
+  margin-left:1.5rem;
+  text-decoration:none;
+}
 
-    .nav a {
-      color: #fff;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+.nav a:hover{color:var(--primary)}
 
-    .nav a:hover {
-      color: var(--primary);
-    }
+.hero{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:3rem 2rem;
+}
 
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 2rem;
-      background: radial-gradient(circle at top, rgba(255,159,28,0.15), transparent 60%);
-    }
+.hero h2{
+  font-size:3rem;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    .hero h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:4rem 2rem;
+}
 
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.85;
-    }
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+}
 
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 4rem 2rem;
-    }
+.card{
+  background:linear-gradient(180deg,#1b1b1b,#111);
+  border-radius:18px;
+  padding:2rem;
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
 
-    section h3 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
+.card h4{color:var(--primary)}
+.price{margin:1rem 0;font-weight:600}
 
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
+.btn{
+  width:100%;
+  padding:.8rem;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+}
 
-    .card {
-      background: linear-gradient(180deg, #1b1b1b, #111);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      transition: transform .3s, box-shadow .3s;
-    }
+.cart{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--accent);
+  color:#000;
+  padding:1rem 1.5rem;
+  border-radius:50px;
+  font-weight:600;
+  cursor:pointer;
+  z-index:150;
+}
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-    }
+#cartPanel{
+  position:fixed;
+  top:0;
+  right:0;
+  width:360px;
+  height:100vh;
+  background:#0f0f0f;
+  padding:2rem;
+  box-shadow:-10px 0 40px rgba(0,0,0,.7);
+  overflow-y:auto;
+  display:none;
+  z-index:200;
+}
 
-    .card h4 {
-      color: var(--primary);
-      margin-bottom: .5rem;
-    }
-
-    .price {
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .ingredients label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      margin-bottom: .4rem;
-      cursor: pointer;
-    }
-
-    .btn {
-      margin-top: 1rem;
-      width: 100%;
-      padding: .8rem;
-      border-radius: 12px;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #000;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      filter: brightness(1.1);
-    }
-
-    footer {
-      background: #000;
-      padding: 2rem;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .socials a {
-      margin: 0 .8rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .socials a:hover {
-      color: var(--primary);
-    }
-
-    .cart {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: var(--accent);
-      color: #000;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    }
-  </style>
+.close{
+  background:none;
+  border:none;
+  color:#ff5e00;
+  font-size:1.2rem;
+  cursor:pointer;
+  float:right;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="nav">
-    <img src="logo.png" alt="BaitaH Xis" style="height:60px">
-    <nav>
-      <a href="#menu">Cardápio</a>
-      <a href="https://wa.me/5547988050106" target="_blank">WhatsApp</a>
-      <a href="https://instagram.com/BaitaH_Xis" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/share/17y6F9148d/?mibextid=wwXIfr" target="_blank">Facebook</a>
-    </nav>
-  </div>
+<div class="nav">
+<img src="logo.png" height="60">
+<nav>
+<a href="#menu">Cardápio</a>
+<a href="https://wa.me/5547988050106" target="_blank">WhatsApp</a>
+</nav>
+</div>
 </header>
 
 <section class="hero">
-  <div>
-   <img 
-  src="logo.png" 
-  alt="BaitaH Xis" 
-  style="
-    max-width:380px;
-    margin-bottom:2.5rem;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-  "
->
-    <h2>O verdadeiro Xis artesanal</h2>
-    <p>Lanches generosos, ingredientes selecionados e muito sabor. Monte do seu jeito e peça agora mesmo.</p>
-  </div>
+<div>
+<img src="logo.png" style="max-width:350px;margin-bottom:2rem">
+<h2>O verdadeiro Xis artesanal</h2>
+<p>Monte do seu jeito e peça agora mesmo.</p>
+</div>
 </section>
 
 <section id="menu">
-  <h3>Cardápio</h3>
-  <div class="menu">
+<h3 style="text-align:center;margin-bottom:2rem">Cardápio</h3>
 
-    <div class="card">
-      <h4>Xis Clássico</h4>
-      <div class="price">R$ 28,00</div>
-      <div class="ingredients">
-        <label><span>Hambúrguer</span><input type="checkbox" checked></label>
-        <label><span>Queijo</span><input type="checkbox" checked></label>
-        <label><span>Alface</span><input type="checkbox" checked></label>
-        <label><span>Tomate</span><input type="checkbox" checked></label>
-        <label><span>Maionese</span><input type="checkbox" checked></label>
-      </div>
-      <button class="btn" onclick="addToCart('Xis Clássico', 28)">Adicionar ao pedido</button>
-    </div>
+<div class="menu">
 
-    <div class="card">
-      <h4>Xis Bacon</h4>
-      <div class="price">R$ 32,00</div>
-      <div class="ingredients">
-        <label><span>Hambúrguer</span><input type="checkbox" checked></label>
-        <label><span>Queijo</span><input type="checkbox" checked></label>
-        <label><span>Bacon</span><input type="checkbox" checked></label>
-        <label><span>Cebola</span><input type="checkbox" checked></label>
-        <label><span>Molho especial</span><input type="checkbox" checked></label>
-      </div>
-      <button class="btn" onclick="addToCart('Xis Bacon', 32)">Adicionar ao pedido</button>
-    </div>
+<!-- XIS -->
+<script>
+const produtos = [
+["Xis Burger",25],
+["Xis Salada",27],
+["Xis Bacon",32],
+["Xis Calabresa",30],
+["Xis Frango",29],
+["Xis Coração",35],
+["Xis Egg",28],
+["Xis Vegetariano",26],
+["BaitaH Xis",42],
+["Xis da Casa",40],
 
-    <div class="card">
-      <h4>Xis Supremo</h4>
-      <div class="price">R$ 38,00</div>
-      <div class="ingredients">
-        <label><span>2 Hambúrgueres</span><input type="checkbox" checked></label>
-        <label><span>Queijo cheddar</span><input type="checkbox" checked></label>
-        <label><span>Bacon</span><input type="checkbox" checked></label>
-        <label><span>Ovo</span><input type="checkbox" checked></label>
-        <label><span>Salada completa</span><input type="checkbox" checked></label>
-      </div>
-      <button class="btn" onclick="addToCart('Xis Supremo', 38)">Adicionar ao pedido</button>
-    </div>
+["Hot Dog Tradicional",18],
+["Dog Calabresa",22],
+["Dog Bacon",23],
+["Dog Coração",26],
+["Dog Kids",15],
+["Dog Bacon/Frango",25],
+["Dog Bacon/Calabresa",25]
+];
 
-  </div>
+document.write(produtos.map(p=>`
+<div class="card">
+<h4>${p[0]}</h4>
+<div class="price">R$ ${p[1]},00</div>
+<button class="btn" onclick="addToCart('${p[0]}',${p[1]})">Adicionar ao pedido</button>
+</div>
+`).join(""));
+</script>
+
+</div>
 </section>
-
-<footer>
-  <p>© 2026 BaitaH Xis – Todos os direitos reservados</p>
-  <div class="socials">
-    <a href="https://wa.me/5547988050106">WhatsApp: (47) 98805‑0106</a>
-    <a href="https://instagram.com/BaitaH_Xis">@BaitaH_Xis</a>
-    <a href="https://www.facebook.com/share/17y6F9148d/?mibextid=wwXIfr">Facebook</a>
-  </div>
-</footer>
 
 <div class="cart" id="cart" onclick="toggleCart()">🛒 Carrinho (0) – R$ 0,00</div>
 
-<div id="cartPanel" style="display:none;position:fixed;top:0;right:0;width:360px;height:100vh;background:#0f0f0f;padding:2rem;box-shadow:-10px 0 40px rgba(0,0,0,.6);overflow-y:auto;z-index:200">
-<h3 style="margin-bottom:1rem;color:#ff9f1c">Seu pedido</h3>
+<div id="cartPanel">
+<button class="close" onclick="toggleCart()">✕ Fechar</button>
+<h3 style="color:#ff9f1c;margin-bottom:1rem">Seu pedido</h3>
 <ul id="cartItems" style="list-style:none;padding:0"></ul>
-<hr style="margin:1rem 0">
-<p style="font-weight:600">Total: <span id="cartTotal">R$ 0,00</span></p>
-<a id="whatsappLink" href="https://wa.me/5547988050106" target="_blank" class="btn">Finalizar no WhatsApp</a>
+<hr>
+<p><strong>Total:</strong> <span id="cartTotal">R$ 0,00</span></p>
+<a id="whatsappLink" class="btn" target="_blank">Finalizar no WhatsApp</a>
 </div>
 
 <script>
-  let cart = [];
+let cart=[];
 
-  function addToCart(item, price) {
-    cart.push({ item, price });
-    renderCart();
-  }
+function addToCart(item,price){
+cart.push({item,price});
+renderCart();
+}
 
-  function removeFromCart(index) {
-    cart.splice(index, 1);
-    renderCart();
-  }
+function removeFromCart(i){
+cart.splice(i,1);
+renderCart();
+}
 
-  function renderCart() {
-    const list = document.getElementById('cartItems');
-    const totalEl = document.getElementById('cartTotal');
-    const cartBtn = document.getElementById('cart');
-    list.innerHTML = '';
-    let total = 0;
+function toggleCart(){
+const panel=document.getElementById("cartPanel");
+panel.style.display=panel.style.display==="block"?"none":"block";
+}
 
-    cart.forEach((p, i) => {
-      total += p.price;
-      list.innerHTML += `
-        <li style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
-          <span>${p.item}</span>
-          <span>
-            R$ ${p.price.toFixed(2)}
-            <button onclick="removeFromCart(${i})" style="margin-left:6px;background:red;color:#fff;border:none;border-radius:6px;padding:2px 6px;cursor:pointer">✕</button>
-          </span>
-        </li>`;
-    });
+function renderCart(){
+const list=document.getElementById("cartItems");
+const totalEl=document.getElementById("cartTotal");
+const cartBtn=document.getElementById("cart");
+list.innerHTML="";
+let total=0;
 
-    cartBtn.innerText = `🛒 Carrinho (${cart.length}) – R$ ${total.toFixed(2)}`;
-    totalEl.innerText = `R$ ${total.toFixed(2)}`;
-    updateWhatsApp(total);
-  }
+cart.forEach((p,i)=>{
+total+=p.price;
+list.innerHTML+=`
+<li style="display:flex;justify-content:space-between;margin-bottom:.6rem">
+${p.item} - R$ ${p.price},00
+<button onclick="removeFromCart(${i})" style="background:red;color:#fff;border:none;border-radius:6px">✕</button>
+</li>`;
+});
 
-  function toggleCart() {
-    const panel = document.getElementById('cartPanel');
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-  }
+cartBtn.innerText=`🛒 Carrinho (${cart.length}) – R$ ${total},00`;
+totalEl.innerText=`R$ ${total},00`;
 
-  function updateWhatsApp(total) {
-    let msg = 'Pedido BaitaH Xis:%0A%0A';
-    cart.forEach(p => {
-      msg += `- ${p.item} (R$ ${p.price.toFixed(2)})%0A`;
-    });
-    msg += `%0ATotal: R$ ${total.toFixed(2)}`;
-    document.getElementById('whatsappLink').href = `https://wa.me/5547988050106?text=${msg}`;
-  }
+let msg="Pedido BaitaH Xis:%0A";
+cart.forEach(p=>msg+=`- ${p.item}%0A`);
+msg+=`%0ATotal: R$ ${total},00`;
+
+document.getElementById("whatsappLink").href=`https://wa.me/5547988050106?text=${msg}`;
+}
 </script>
 
 </body>
